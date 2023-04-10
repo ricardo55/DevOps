@@ -13,13 +13,13 @@ jobs:
         with:
           path: capstone_project
       - name: Install dependencies
-        working-directory: capstone_project/hello-world/
+        working-directory: ./capstone_project/hello-world/
         run: npm install
       - name: Run tests
-        working-directory: capstone_project/hello-world/
+        working-directory: ./capstone_project/hello-world/
         run: npm test
       - name: Build and push Docker image
-        working-directory: capstone_project/hello-world/
+        working-directory: ./capstone_project/hello-world/
         if: success()
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
