@@ -14,4 +14,4 @@ jobs:
       run: npm test
     - name: Build Docker image
       if: success()
-      run: docker build -t hello-world .
+      run: docker build -t capstone_project/hello-world .
