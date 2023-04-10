@@ -1,17 +1,30 @@
 name: CI
+
 on:
   push:
   pull_request:
+
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: Install dependencies
-      run: npm install
-    - name: Run tests
-      run: npm test
-    - name: Build Docker image
-      if: success()
-      run: docker build -t capstone_project/hello-world .
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          path: capstone_project
+      - name: Install dependencies
+        working-directory: ./capstone_project
+        run: npm ci
+      - name: Run tests
+        working-directory: ./capstone_project
+        run: npm test
+      - name: Build and push Docker image
+        working-directory: ./capstone_project
+        if: success()
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          docker build -t hello-world .
+          echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
+          docker push hello-world
