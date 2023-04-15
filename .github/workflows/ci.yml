@@ -27,7 +27,7 @@ jobs:
           cache-dependency-path: ./capstone_project/hello-world/package-lock.json
 
       - name: Install dependencies
-        working-directory: ./capstone_project/hello-world/
+        working-directory: capstone_project/hello-world/
         run: |
           ls -la 
           npm install
