@@ -1,10 +1,6 @@
-# syntax=docker/dockerfile:1
-
-FROM node:16.13.1
+FROM node:16-alpine
+COPY . /hello-world/
 WORKDIR /hello-world
-COPY package*.json ./
 RUN npm install
-RUN npm install package.json
-COPY . .
 EXPOSE 3000
 CMD ["npm", "start"]
