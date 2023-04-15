@@ -29,12 +29,15 @@ jobs:
       - name: Install dependencies
         working-directory: capstone_project/hello-world/
         run: |
-          ls -la 
+          ls -la
+          cd capstone_project/hello-world/ 
           npm install
 
       - name: Run tests
         working-directory: capstone_project/hello-world/
-        run: npm test
+        run: | 
+          cd capstone_project/hello-world/ 
+          npm test
 
       - name: Build and push Docker image
         working-directory: capstone_project/hello-world/
@@ -43,6 +46,7 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: |
+          cd capstone_project/hello-world/ 
           docker build -t hello-world .
           echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
           docker push hello-world
