@@ -1,6 +1,6 @@
 FROM node:16-alpine
-COPY . .
-WORKDIR /hello-world
+COPY capstone_project/hello-world/ .
+WORKDIR  /hello-world
 RUN npm install
 EXPOSE 3000
 CMD ["npm", "start"]
