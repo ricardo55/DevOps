@@ -4,6 +4,6 @@
   tasks:
     - name: Replace "Hello World!" with "Hello DevOps!"
       replace:
-        path: src/App.js
+        path: ./src/App.js
         regexp: 'Hello World!'
         replace: 'Hello DevOps!'

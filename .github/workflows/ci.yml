@@ -45,3 +45,12 @@ jobs:
         run: |
           cd capstone_project/hello-world/ 
           docker build -t hello-world .
+
+      - name: Update the text using Ansible
+        working-directory: capstone_project/hello-world/
+        run: | 
+          cd capstone_project/hello-world/ 
+          ansible-playbook -i inventory.ini app.yml
+          docker build -t hello-world .
+          docker run -p 3000:3000 hello-world
+
