@@ -20,6 +20,12 @@ jobs:
       - name: Access to project 
         run: cd capstone_project/hello-world/
 
+      - name: vERSION of Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.13.1
+          cache-dependency-path: ./capstone_project/hello-world/package-lock.json
+
       - name: Install dependencies
         working-directory: capstone_project/hello-world/
         run: npm install
