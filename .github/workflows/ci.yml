@@ -41,12 +41,7 @@ jobs:
 
       - name: Build and push Docker image
         working-directory: capstone_project/hello-world/
-        if: ${{ success() }}
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        if: success()
         run: |
           cd capstone_project/hello-world/ 
           docker build -t hello-world .
-          echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
-          docker push hello-world
