@@ -28,7 +28,9 @@ jobs:
 
       - name: Install dependencies
         working-directory: ./capstone_project/hello-world/
-        run: npm install
+        run: |
+          ls -la 
+          npm install
 
       - name: Run tests
         working-directory: capstone_project/hello-world/
