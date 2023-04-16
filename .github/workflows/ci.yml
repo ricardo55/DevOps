@@ -50,6 +50,9 @@ jobs:
         working-directory: capstone_project/hello-world/
         run: | 
           cd capstone_project/hello-world/
-          ansible all -m ping -vvv 
+          ansible all -m ping -vvv
+          ansible-playbook -i inventory.ini app.yml
+          docker build -t hello-world .
+          docker run -p 3000:3000 hello-world 
           
 

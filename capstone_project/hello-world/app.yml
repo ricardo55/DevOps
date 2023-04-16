@@ -1,6 +1,6 @@
 - name: Update hello message
-  hosts: all
-  become: yes
+  hosts: target1
+  become: true
   tasks:
     - name: Replace "Hello World!" with "Hello DevOps!"
       replace:
