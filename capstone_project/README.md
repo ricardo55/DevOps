@@ -62,12 +62,18 @@ NOTE: From here on, whenever we say repository , that refers to your forked repo
 - Using docker, containerize the application.
 - Build the container and run it to make the application available on http://localhost:3000
 
+- Solution: I put a CI pipeline in the path /.github/worksflows/ci.yml where I put the specifications to create the docker container of the application
+
 ## 3. Create a CI Pipeline 
 - Create a CI pipeline which 
      - will trigger on push and on pull request
      - Run the tests
      - Only if tests are success, build the container
 
+- Solution: Here the file of the aforementioned route is used in the same way and here the specifications of the tests are put and that you are successful.
+
 ## 4. Update "Hello World!" to "Hello DevOps!"
 - Update the node js application to display "Hello DevOps!" instead of "Hello World!" using ansible.
+
+- Solution: In this, I put inventory.ini, ansible.cfg and app.yml files, where in the first one there are only the keys to be able to manage the user, the next one with the configurations and the last one where the change of the word world is made by DevOps
 
