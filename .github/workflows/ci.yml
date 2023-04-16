@@ -56,7 +56,10 @@ jobs:
           docker run -d -p 3000:3000 hello-world
 
       - name: Stop Docker container
-        run: docker stop hello-world
+        run: |
+          cd capstone_project/hello-world/
+          ls -la
+          docker stop hello-world
  
           
 
