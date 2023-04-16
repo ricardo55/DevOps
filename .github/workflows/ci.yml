@@ -53,7 +53,7 @@ jobs:
           ansible all -m ping -vvv
           ansible-playbook -i inventory.ini app.yml
           docker build -t hello-world .
-          docker run -p 3000:3000 hello-world
+          docker run -d -p 3000:3000 hello-world
 
       - name: Stop Docker container
         run: docker stop hello-world
