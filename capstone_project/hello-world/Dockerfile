@@ -1,7 +1,7 @@
-FROM ubuntu:20.04
+FROM node:16.13.1
 
-RUN apt-get update -y && apt-get install -y gnupg2
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C
+# RUN apt-get update -y && apt-get install -y gnupg2
+# RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C
 # RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 871920D1991BC93C
 
 RUN apt-get update  -y \
@@ -14,8 +14,8 @@ RUN apt-get update  -y \
     nodejs \
     npm
 
-RUN add-apt-repository --yes --update ppa:ansible/ansible \
-    && apt-get install -y ansible
+# RUN add-apt-repository --yes --update ppa:ansible/ansible \
+#    && apt-get install -y ansible
 
 COPY . .
 WORKDIR  /hello-world
